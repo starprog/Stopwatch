@@ -1,15 +1,11 @@
 package ViewModel {
-	import objects.Background.GameBackground;
-	import objects.Player.Serial;
-	
-	import screens.InGame;
-	import screens.Start;
-	
-	import starling.display.Sprite;
-	import managers.PoolManager;
-	
+
+	import Screens.Home;
+
 	public class ViewModelLocator
 	{
+		
+		
 		// Single Instance of Our ModelLocator
 		private static var instance:ViewModelLocator;
 		public function ViewModelLocator(enforcer:SingletonEnforcer)
@@ -27,17 +23,12 @@ package ViewModel {
 			return instance;
 		}
 		//DEFINE VARIABLES 
-		public var inGame:InGame;
-		public var startScreen:Start;
-		public var activePlayerSerial:Serial;
-		public var gameObjects:Array = new Array();
-		public var gameBackground:GameBackground;
-		public var objectHolder:Sprite;
+		public var DeviceHeight:int;
+		public var DeviceWidth:int;
 		
-		// DEFINE VIEW CONSTANTS
-		
-		//Specialized functions for the the model locator.
-		
+		// Screens
+		public var stopWatch:Stopwatch;
+		public var home:Home;
 	}
 }
 class SingletonEnforcer{};
