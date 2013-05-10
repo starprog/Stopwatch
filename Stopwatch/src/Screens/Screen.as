@@ -23,7 +23,7 @@ package Screens
 			{
 				case "[class Home]":
 					trace("Home Screen Active!!");
-					//HideScreen(Locator.otherclass);
+					//HideScreen(Locator.stopWatch);
 					this.visible = true;						
 					break;
 				

@@ -5,8 +5,11 @@ package
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import ViewModel.ViewModelLocator;
+	import Screens.Home;
+	import flash.geom.Rectangle;
+	import Objects.Clock;
 	
-	[SWF(frameRate="60",width="600",height="800",backgroundColor="0x4C4C4C")]
+	[SWF(frameRate="60",width="1500",height="800",backgroundColor="0x4C4C4C")]
 	
 	public class Stopwatch extends Sprite
 	{
@@ -17,8 +20,8 @@ package
 			super();
 			
 			// support autoOrients
-			stage.align = StageAlign.TOP_LEFT;
-			stage.scaleMode = StageScaleMode.EXACT_FIT;
+			//stage.align = StageAlign.TOP_LEFT;
+			//stage.scaleMode = StageScaleMode.EXACT_FIT;
 			
 			this.addEventListener(Event.ADDED_TO_STAGE,init)
 		}
@@ -26,8 +29,33 @@ package
 		private function init(event:Event):void
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
-						
+					
+			setDeviceSize();
+			
+			CreateScreens();
+			
 			Locator.home.SwitchToScreen();
+		}
+		
+		private function CreateScreens():void
+		{
+			Locator.stopWatch = this;
+			
+			Locator.home = new Home();
+
+			this.addChild(Locator.home);
+
+		}
+		
+		private function setDeviceSize():void
+		{
+			var deviceSize:Rectangle = new Rectangle(0,0,stage.fullScreenWidth,stage.fullScreenHeight);
+			
+			Locator.DeviceHeight=deviceSize.height;
+			Locator.DeviceWidth=deviceSize.width;
+			
+			trace("DeviceHeight= " + Locator.DeviceHeight);
+			trace("DeviceWidth= " + Locator.DeviceWidth);
 		}
 	}
 }
