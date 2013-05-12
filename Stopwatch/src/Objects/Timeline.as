@@ -67,7 +67,6 @@ package Objects
 		{
 			for(var i:int = 0; i<ActivityCollection.length;i++)
 			{
-				trace(ActivityCollection.length);
 				if(Locator.home.clock.SecondValue >= ActivityCollection[i].StartTime &&
 					Locator.home.clock.SecondValue <= ActivityCollection[i].StopTime)
 				{

@@ -62,12 +62,15 @@ package Objects
 		
 		private function CreateEventHandlers():void
 		{
-			this.addEventListener(Event.ENTER_FRAME,OnEnterFrame);
+			this.addEventListener(Event.ENTER_FRAME,Update);
 		}
 		
-		protected function OnEnterFrame(event:Event):void
+		protected function Update(event:Event):void
 		{
 			Tick();
+			
+			secondHand.Update();
+			Locator.home.timeline.Update();
 		}
 		
 		private function Tick():void
@@ -99,12 +102,10 @@ package Objects
 		public function ResetTime():void
 		{
 			_SecondValue = 0;
-			secondHand.Update();
-			Locator.home.timeline.Update();
 			
 			if(Loop == false)
 			{
-				IsTicking = false;
+				clock_BTN.Stop();
 			}
 
 			trace("CLOCK: Reset");
@@ -120,9 +121,6 @@ package Objects
 			else
 			{
 				_SecondValue = value;
-				
-				secondHand.Update();
-				Locator.home.timeline.Update();
 			}
 			
 			trace("CLOCK: SecondValue = "+_SecondValue);
