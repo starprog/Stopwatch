@@ -8,8 +8,9 @@ package
 	import Screens.Home;
 	import flash.geom.Rectangle;
 	import Objects.Clock;
+	import flash.display.*;
 	
-	[SWF(frameRate="60",width="1500",height="800",backgroundColor="0x4C4C4C")]
+	[SWF(frameRate="60",width="1920",height="1080",backgroundColor="0x4C4C4C")]
 	
 	public class Stopwatch extends Sprite
 	{
@@ -18,7 +19,8 @@ package
 		public function Stopwatch()
 		{
 			super();
-			
+	
+			this.stage.displayState=StageDisplayState.FULL_SCREEN;
 			// support autoOrients
 			//stage.align = StageAlign.TOP_LEFT;
 			//stage.scaleMode = StageScaleMode.EXACT_FIT;
@@ -30,6 +32,8 @@ package
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE,init);
 					
+			Locator.FPS = 60;
+			
 			setDeviceSize();
 			
 			CreateScreens();
@@ -54,8 +58,7 @@ package
 			Locator.DeviceHeight=deviceSize.height;
 			Locator.DeviceWidth=deviceSize.width;
 			
-			trace("DeviceHeight= " + Locator.DeviceHeight);
-			trace("DeviceWidth= " + Locator.DeviceWidth);
+
 		}
 	}
 }

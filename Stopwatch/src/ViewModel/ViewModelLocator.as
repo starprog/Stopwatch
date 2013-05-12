@@ -11,7 +11,7 @@ package ViewModel {
 		public function ViewModelLocator(enforcer:SingletonEnforcer)
 		{
 			if (enforcer == null) {
-				throw new Error( "You Can Only Have One ModelLocator" );
+				throw new Error( "VIEWMODELLOCATOR: You Can Only Have One ModelLocator" );
 			}
 			
 		}
@@ -25,6 +25,7 @@ package ViewModel {
 		//DEFINE VARIABLES 
 		public var DeviceHeight:int;
 		public var DeviceWidth:int;
+		public var FPS:int;
 		
 		// Screens
 		public var stopWatch:Stopwatch;
